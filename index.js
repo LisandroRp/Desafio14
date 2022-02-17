@@ -1,17 +1,18 @@
 import ServiceException from "./src/exceptions/ServiceException.js"
 import config from './options/config.js'
 import parseArgs from "minimist";
+import { fork } from 'child_process'
 
 import { generalRouter } from "./src/routers/api/GeneralRouter.js";
 import { productRouter } from "./src/routers/api/ProductRouter.js";
 import { messageRouter } from "./src/routers/api/MessageRouter.js";
 import { cartRouter } from "./src/routers/api/CartRouter.js";
+import { randomRouter } from "./src/routers/api/RandomRouter.js";
 
 import { productWebRouter } from "./src/routers/web/ProductWebRouter.js";
 import { messageWebRouter } from "./src/routers/web/MessageWebRouter.js";
 import { generalWebRouter } from "./src/routers/web/GeneralWebRouter.js";
 import { infoWebRouter } from "./src/routers/web/InfoWebRouter.js";
-import { randomWebRouter } from "./src/routers/web/RandomWebRouter.js";
 
 import express from 'express'
 import handlebars from 'express-handlebars'
@@ -52,7 +53,7 @@ app.use(session({
 app.use('/api/products', productRouter);
 app.use('/api/messages', messageRouter);
 app.use('/api/carts', cartRouter);
-app.use('/api/randoms', randomWebRouter);
+app.use('/api/randoms', randomRouter);
 app.use('/api/',generalRouter);
 app.use('/products', productWebRouter);
 app.use('/messages', messageWebRouter);

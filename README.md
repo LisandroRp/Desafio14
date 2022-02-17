@@ -2,15 +2,14 @@
 
 **********************************
 
-**CHAT**
-
 **GET**
-(Renderiza la pantalla de Log in)
-http://localhost:8080/login
+(Renderiza la pantalla con los nros random)
 
-**POST**
-(Valida el usuario)
-http://localhost:8080/login
+(muestra los randoms de la cantidad indicada en la query)
+http://localhost:8080/api/randoms?cant=500000000
 
-(Destruye la Session, renderiza el logout, redirige al login)
-http://localhost:8080/logout
+(muestra los randoms de 100Millones)
+http://localhost:8080/api/randoms
+
+(muestra la info de la consigna)
+http://localhost:8080/info
